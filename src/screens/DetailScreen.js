@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { Button, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getPokemon } from '../services/pokeapi';
-import StatusView from '../components/statusView';
+import StatusView from '../components/StatusView';
 import TypeBadge from '../components/TypeBadge';
 import StatBar from '../components/StatBar';
 import { TYPE_COLORS } from '../theme/typeColors';
@@ -10,14 +10,14 @@ import { capitalize, padId } from '../utils/format';
 
 export default function DetailScreen({pokemonId, onBack}){
     const [pokemon, setPokemon] = useState(null);
-    const [status, setStatus] = useState('loanding');
+    const [status, setStatus] = useState('loading');
 
     const loadPokemon = useCallback (async () => {
-        setStatus('loanding');
+        setStatus('loading');
         try{
             const data = await getPokemon(pokemonId);
             setPokemon(data);
-            setStatus('succes');
+            setStatus('success');
         } catch (error) {
             setStatus('error');
         }
@@ -42,7 +42,7 @@ export default function DetailScreen({pokemonId, onBack}){
                     <View style={styles.badges}>
                         {pokemon.types.map((type) => (
                             <TypeBadge key={type} type={type} />
-                        ))};
+                        ))}
                     </View>
 
                     <View style={styles.measure}>
@@ -54,10 +54,10 @@ export default function DetailScreen({pokemonId, onBack}){
                     <View style={styles.stats}>
                         {pokemon.stats.map((stats) =>(
                             <StatBar key={stats.name} name={stats.name} value={stats.value} color={mainColor}/>
-                        ))};
+                        ))}
                     </View>
                 </ScrollView>
-            )};
+            )}
 
             <View style={styles.footer}>
                 <Button title='Voler a la lista' onPress={onBack}/>
@@ -69,7 +69,9 @@ export default function DetailScreen({pokemonId, onBack}){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'center',
         backgroundColor: '#F4F4F8',
+        alignItems: 'center',
     },
 
     image: {
@@ -86,7 +88,7 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 30,
         fontWeight: '700',
-        marginButtom: 12,
+        marginBottom: 12,
     },
 
     badges: {

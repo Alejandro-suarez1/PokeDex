@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ActivityIndicator, FlatList, StyleSheet, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getPokemon, getPokemonList } from '../services/pokeapi';
@@ -15,6 +15,8 @@ export default function ListScreen({ onSelect }) {
   const [hasMore, setHasMore] = useState(true);
   const [query, setQuery] = useState('');
   const [notFound, setNotFound] = useState(false);
+
+  const loadingMoreRef = useRef(false);
 
   const loadFirstPage = async () => {
     setStatus('loading');
@@ -33,15 +35,21 @@ export default function ListScreen({ onSelect }) {
   }, []);
 
   const loadMore = async () => {
-    if (loadingMore || !hasMore || status !== 'success') return;
+    if (loadingMoreRef.current || !hasMore || status !== 'success') return;
 
+    loadingMoreRef.current = true;
     setLoadingMore(true);
     try {
       const data = await getPokemonList(pokemons.length, PAGE_SIZE);
-      setPokemons((previous) => [...previous, ...data.results]);
+      setPokemons((previous) => {
+        const existingIds = new Set(previous.map((p) => p.id));
+        const nuevos = data.results.filter((p) => !existingIds.has(p.id));
+        return [...previous, ...nuevos];
+      });
       setHasMore(data.hasMore);
     } catch (error) {
     } finally {
+      loadingMoreRef.current = false;
       setLoadingMore(false);
     }
   };

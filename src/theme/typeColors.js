@@ -6,7 +6,7 @@ export const TYPE_COLORS ={
     grass: '#7AC74C',
     ice: '#96D9D6',
     fighting: '#C22E28',
-    poison: '##A33EA1',
+    poison: '#A33EA1',
     ground: '#E2BF65',
     flying: '#A98FF3',
     psychic: '#F95587',

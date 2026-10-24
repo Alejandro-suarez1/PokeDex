@@ -5,7 +5,7 @@ const MAX_STAT = 255;
 const STAT_LABELS = {
     hp: 'PS',
     attack: 'Attack',
-    defense: 'Defensa', 'special-attack': 'Ataque-especial', 'special-defense': 'Defensa-especial',
+    defense: 'Defense', 'special-attack': 'Att. especial', 'special-defense': 'Def. especial',
     speed: 'Velocidad',
 };
 

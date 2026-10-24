@@ -1,4 +1,4 @@
-import { ActivityIndicator, Button } from 'react-native';
+import { ActivityIndicator, Button, StyleSheet, View, Text } from 'react-native';
 
 export default function StatusView({ type, message, onRetry }){
     return (

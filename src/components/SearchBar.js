@@ -3,7 +3,7 @@ import { Button, StyleSheet, TextInput, View } from 'react-native';
 export default function SearchBar({ value, onChangeText, onSubmit }){
     return(
         <View style= {styles.container}>
-            <TextInput style={styles.input} value={value} onChangeText={onChangeText} onSubmitEditing={onSubmit} placeholder='Buscar por nombre...' autoCorrect={false}/>
+            <TextInput style={styles.input} value={value} onChangeText={onChangeText} onSubmitEditing={onSubmit} placeholder='Buscar por nombre o numero...' autoCorrect={false}/>
             <Button title='Buscar' onPress={onSubmit}/>
         </View>   
     );
