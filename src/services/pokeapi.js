@@ -55,7 +55,7 @@ export async function getPokemon(nameOrId) {
   return {
     id: data.id,
     name: data.name,
-    heightM: data.height / 10, 
+    heightM: data.height / 10,
     weightKg: data.weight / 10, 
     imageUrl:
       data.sprites?.other?.['official-artwork']?.front_default ?? getArtworkUrl(data.id),
