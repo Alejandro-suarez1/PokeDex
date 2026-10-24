@@ -5,7 +5,7 @@ const MAX_STAT = 255;
 const STAT_LABELS = {
     hp: 'PS',
     attack: 'Attack',
-    defense: 'Defensa', 'special-attack': 'Ataque-especial', 'special-defesne': 'Defensa-especial',
+    defense: 'Defensa', 'special-attack': 'Ataque-especial', 'special-defense': 'Defensa-especial',
     speed: 'Velocidad',
 };
 
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 10,
         backgroundColor: '#E3E3EA',
-        borderRaduis: 5,
+        borderRadius: 5,
         overflow: 'hidden',
     },
 

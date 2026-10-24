@@ -19,7 +19,7 @@ export default function DetailScreen({pokemonId, onBack}){
             setPokemon(data);
             setStatus('succes');
         } catch (error) {
-            setStatus(error);
+            setStatus('error');
         }
     }, [pokemonId]);
 
@@ -31,7 +31,7 @@ export default function DetailScreen({pokemonId, onBack}){
     
     return (
         <SafeAreaView style={styles.container}>
-            {status === 'loanding' && <StatusView type='loanding' message='Cargando ficha...' />}
+            {status === 'loading' && <StatusView type='loading' message='Cargando ficha...' />}
             {status === 'error' && <StatusView type='error' onRetry={loadPokemon}/>}
             {status === 'success' && pokemon && (
                 <ScrollView contentContainerStyle={styles.content}>
@@ -40,7 +40,7 @@ export default function DetailScreen({pokemonId, onBack}){
                     <Text style={styles.name}>{capitalize(pokemon.name)}</Text>
 
                     <View style={styles.badges}>
-                        {pokemon-types.map((type) => (
+                        {pokemon.types.map((type) => (
                             <TypeBadge key={type} type={type} />
                         ))};
                     </View>
@@ -53,7 +53,7 @@ export default function DetailScreen({pokemonId, onBack}){
                     <Text style={styles.sectionTitle}>Estadisticas base</Text>
                     <View style={styles.stats}>
                         {pokemon.stats.map((stats) =>(
-                            <StatBar key={stats.name} name={stat.name} value={stat.value} color={mainColor}/>
+                            <StatBar key={stats.name} name={stats.name} value={stats.value} color={mainColor}/>
                         ))};
                     </View>
                 </ScrollView>

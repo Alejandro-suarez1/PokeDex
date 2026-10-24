@@ -19,7 +19,7 @@ export const TYPE_COLORS ={
     fairy: '#D685AD',
 };
 
-export const DEFATUL_TYPE_COLORS = '#888888'
+export const DEFAULT_TYPE_COLORS = '#888888'
 
 export const TYPE_LABELS = {
     normal: 'Normal',

@@ -2,13 +2,13 @@ import { ActivityIndicator, Button } from 'react-native';
 
 export default function StatusView({ type, message, onRetry }){
     return (
-        <View style={StyleSheet.container}>
-            {type === 'loanding' && (
+        <View style={styles.container}>
+            {type === 'loading' && (
                 <>
                     <ActivityIndicator size="large" />
-                    <Text style={StyleSheet.text}>{message ?? 'Cargando...'}</Text>
+                    <Text style={styles.text}>{message ?? 'Cargando...'}</Text>
                 </>
-            )};
+            )}
 
             {type === 'error' && (
                 <>
@@ -17,11 +17,11 @@ export default function StatusView({ type, message, onRetry }){
                     </Text>
                     <Button title='Reitentar' onPress={onRetry}/>
                 </>
-            )};
+            )}
 
             {type === 'empty' && (
                 <Text style={styles.text}>{message ?? 'No se encontro ningun Pokemon'}</Text>
-            )};
+            )}
         </View>
     );
 };
