@@ -1,3 +1,8 @@
+# Integrantes
+
+- David Alejandro Jaramillo Suarez
+- Juan Diego Delgado Osorio
+
 # PokéDex Explorer
 
 App hecha con Expo y React Native que consume la [PokéAPI](https://pokeapi.co). Lista Pokémon en una cuadrícula de 2 columnas con scroll infinito, permite buscarlos por nombre o número y muestra su ficha con imagen, tipos, altura, peso y estadísticas base.
