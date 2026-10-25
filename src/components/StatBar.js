@@ -1,17 +1,18 @@
+// Concepto visto en clase
 import { StyleSheet, Text, View } from 'react-native';
 
 const MAX_STAT = 255;
 
+// Concepto visto en clase
 const STAT_LABELS = {
     hp: 'PS',
-    attack: 'Attack',
-    defense: 'Defense', 'special-attack': 'Att. especial', 'special-defense': 'Def. especial',
+    attack: 'Ataque',
+    defense: 'Defensa', 'special-attack': 'At. especial', 'special-defense': 'Def. especial',
     speed: 'Velocidad',
 };
 
 export default function StatBar ({name, value, color='#6390F0'}){
     const widthPercent = Math.min((value / MAX_STAT) * 100, 100);
-
     return (
         <View style={styles.row}>
             <Text style={styles.label}>{STAT_LABELS[name] ?? name}</Text>
@@ -23,11 +24,12 @@ export default function StatBar ({name, value, color='#6390F0'}){
     );
 };
 
+// Concepto visto en clase
 const styles = StyleSheet.create({
     row: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginVertical: 5
+        marginVertical: 5,
     },
 
     label: {
@@ -46,9 +48,11 @@ const styles = StyleSheet.create({
 
     track: {
         flex: 1,
-        height: 10,
+        height: 12,
         backgroundColor: '#E3E3EA',
-        borderRadius: 5,
+        borderRadius: 6,
+        borderWidth: 1,
+        borderColor: '#000',
         overflow: 'hidden',
     },
 

@@ -1,6 +1,8 @@
+// Concepto visto en clase
 import { normalizeQuery } from '../utils/format';
 import { BASE_URL, ARTWORK_URL } from '../config/api';
 
+// Concepto visto en clase
 export class ApiError extends Error {
   constructor(message, status) {
     super(message);
@@ -9,6 +11,7 @@ export class ApiError extends Error {
   }
 }
 
+// Concepto visto en clase
 export function getIdFromUrl(url) {
   const parts = url.split('/').filter(Boolean);
   return Number(parts[parts.length - 1]);
@@ -18,6 +21,7 @@ export function getArtworkUrl(id) {
   return `${ARTWORK_URL}/${id}.png`;
 }
 
+// Concepto visto en clase
 async function request(path) {
   let response;
   try {
@@ -33,6 +37,7 @@ async function request(path) {
   return response.json();
 }
 
+// Concepto visto en clase
 export async function getPokemonList(offset = 0, limit = 20) {
   const data = await request(`/pokemon?limit=${limit}&offset=${offset}`);
 
@@ -45,6 +50,7 @@ export async function getPokemonList(offset = 0, limit = 20) {
   };
 }
 
+// Concepto visto en clase
 export async function getPokemon(nameOrId) {
   const query = normalizeQuery(nameOrId);
 

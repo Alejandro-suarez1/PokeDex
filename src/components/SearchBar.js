@@ -1,15 +1,20 @@
-import { Button, StyleSheet, TextInput, View } from 'react-native';
+// Concepto visto en clase
+import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function SearchBar({ value, onChangeText, onSubmit }){
-    return(
-        <View style= {styles.container}>
-            <TextInput style={styles.input} value={value} onChangeText={onChangeText} onSubmitEditing={onSubmit} placeholder='Buscar por nombre o numero...' autoCorrect={false}/>
-            <Button title='Buscar' onPress={onSubmit}/>
-        </View>   
+// Concepto visto en clase
+export default function SearchBar({ value, onChangeText, onSubmit }) {
+    return (
+        <View style={styles.container}>
+            <TextInput style={styles.input} value={value} onChangeText={onChangeText} onSubmitEditing={onSubmit} placeholder='Buscar por nombre o número...' autoCapitalize='none' autoCorrect={false}/>
+            <Pressable style={styles.button} onPress={onSubmit}>
+                <Text style={styles.buttonText}>Buscar</Text>
+            </Pressable>
+        </View>
     );
-};
+}
 
-const styles = StyleSheet.create ({
+// Concepto visto en clase
+const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -24,6 +29,21 @@ const styles = StyleSheet.create ({
         backgroundColor: '#fff',
         borderRadius: 8,
         borderWidth: 1,
-        borderColor: '#ddd',
+        borderColor: '#000',
     },
-});
+
+    button: {
+        backgroundColor: '#4F5660',
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        alignItems: 'center',
+        borderColor: '#000',
+        borderWidth: 1,
+    },
+
+    buttonText: {
+        color: '#fff',
+        fontWeight: 'bold',
+    },
+}); 

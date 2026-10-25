@@ -1,3 +1,4 @@
+// Concepto visto en clase
 import { StyleSheet, Text, View } from 'react-native';
 import {DEFAULT_TYPE_COLORS, TYPE_COLORS, TYPE_LABELS } from '../theme/typeColors';
 import { capitalize } from '../utils/format';
@@ -13,11 +14,14 @@ export default function TypeBadge ({type}){
     );
 };
 
+// Concepto visto en clase
 const styles = StyleSheet.create({
     badge: {
         paddingHorizontal: 14,
         paddingVertical: 6,
         borderRadius: 16,
+        borderColor: '#000',
+        borderWidth: 1,
     },
 
     text: {
